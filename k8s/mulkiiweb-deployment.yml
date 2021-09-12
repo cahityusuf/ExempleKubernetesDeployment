@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mulkiiweb-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mulkiiweb
+  template:
+    metadata:
+      labels:
+        app: mulkiiweb
+    spec:
+      containers:
+      - name: mulkiiweb
+        image: cahityusuf/mulkiiweb:latest
+        ports:
+        - containerPort: 3000

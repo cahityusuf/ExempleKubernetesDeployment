@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mulkiiapi-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    app: mulkiiapi-pod
+  ports:
+    - name: http
+      port: 8000
+      targetPort: 80

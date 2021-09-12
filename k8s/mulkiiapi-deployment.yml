@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mulkiiapi-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mulkiiapi-pod
+  template:
+    metadata:
+      labels:
+        app: mulkiiapi-pod
+    spec:
+      containers:
+      - name: mulkiiapi-container
+        image: cahityusuf/mulkiiapi:0.01
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+
+
+
